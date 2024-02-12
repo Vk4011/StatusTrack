@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import io from "socket.io-client";
 import axios from "axios";
+import io from "socket.io-client";
 import "./App.css";
 import "./TextEditor.css";
 import baseURL from "./baseURL";
@@ -37,7 +37,10 @@ function TextEditor() {
 
   const handleSave = async () => {
     try {
-      const response = await axios.post(`${baseURL}/saveScript`, {
+      if (!username) {
+        throw new Error("Username is missing.");
+      }
+      const response = await axios.post(`${baseURL}/saveScript?editorId=${username}`, {
         content: scriptContent,
       });
       if (response.status === 200) {
@@ -53,28 +56,20 @@ function TextEditor() {
 
   const handleRefresh = async () => {
     try {
-      const content = await getScriptContent();
-      setScriptContent(content);
+      await getScriptContent(); // Fetch script content and set it
     } catch (error) {
       console.error("Error fetching script:", error);
       alert("An error occurred while fetching the script.");
     }
   };
 
-  const saveScriptContent = async (content) => {
-    await fetch(`${baseURL}/saveScript`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ content }),
-    });
-  };
-
   const getScriptContent = async () => {
-    const response = await fetch(`${baseURL}/getScript`);
-    const content = await response.text();
-    return content;
+    try {
+      const response = await axios.get(`${baseURL}/getScript?editorId=${username}`);
+      setScriptContent(response.data); // Update script content state
+    } catch (error) {
+      throw new Error("Failed to fetch script");
+    }
   };
 
   return (
