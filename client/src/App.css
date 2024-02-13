@@ -6,7 +6,7 @@
   width: 350px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  background: rgba(24, 20, 20, 0.987);
+  background: rgba(23, 23, 23, 0.987);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
@@ -45,7 +45,7 @@
   border-radius: 0.8em;
   cursor: pointer;
   border: none;
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  background: linear-gradient(to right, #6092d8, #106ae8);
   color: ghostwhite;
   overflow: hidden;
 }
@@ -77,7 +77,7 @@
 
 .cssbuttons-io::before {
   content: "";
-  background: #000;
+  background: #5b64ca;
   width: 120%;
   left: -10%;
   transform: skew(30deg);
@@ -107,7 +107,7 @@
 
 .refresh {
   color: white;
-  background-color: #0a0a0a;
+  background-color: #010101;
   font-weight: 500;
   border-radius: 0.5rem;
   font-size: 12px;
@@ -125,7 +125,8 @@
 }
 
 .refresh:hover {
-  background-color: #1b1a1a;
+  background-color: #010101;
+  box-shadow: 0 0 10px rgb(0, 0, 0) , 0 0 25px rgb(8, 8, 8)
 }
 
 .refresh svg {
@@ -133,7 +134,7 @@
   width: 1.3rem;
   height: 1.3rem;
   margin-right: 0.75rem;
-  color: white;
+  color: rgb(74, 74, 245);
 }
 
 .refresh:focus svg {
@@ -152,7 +153,3 @@
 
 
 
-.App{
-  width: 400px;
-  
-}

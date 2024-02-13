@@ -51,9 +51,9 @@
 .terminal-title {
   float: left;
   line-height: 1.5em;
-  color: #eee;
+  color: #208fe9;
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .text {
@@ -69,7 +69,7 @@
 }
 
 .chat-container {
-  width: 70%;
+  width: 60%;
   margin: 50px auto;
   border: 2px solid #0bf131;
   border-radius: 5px;
@@ -104,7 +104,7 @@
 .IconContainer {
   width: 30px;
   height: 30px;
-  background: linear-gradient(to bottom, rgb(255, 136, 255), rgb(172, 70, 255));
+  background: linear-gradient(to bottom, rgb(87, 148, 212), rgb(8, 129, 242));
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -157,6 +157,41 @@
 
   .chat-container {
     width: 720px;
+    min-height: 200px;
     margin: 50px auto;
+    border: 1.5px solid rgb(38, 230, 50);
+    font-size: 1rem;
   }
+  .chat-container:hover{
+    box-shadow:  0px 0px 10px rgb(9, 9, 9),0px 0px   15px rgb(11, 11, 11);
+    border: #0bf131;
+
+  }
+  .terminal-loader{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+.terminal-loader{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .chat-container {
+    width: 85%;
+    margin: 50px auto;
+    border: 2px solid #0bf131;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 20px;
+    background-color: black;
+    color: #0bf131;
+
+  }
+
 }

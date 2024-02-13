@@ -40,9 +40,12 @@ function TextEditor() {
       if (!username) {
         throw new Error("Username is missing.");
       }
-      const response = await axios.post(`${baseURL}/saveScript?editorId=${username}`, {
-        content: scriptContent,
-      });
+      const response = await axios.post(
+        `${baseURL}/saveScript?editorId=${username}`,
+        {
+          content: scriptContent,
+        }
+      );
       if (response.status === 200) {
         alert("Script saved successfully!");
       } else {
@@ -50,7 +53,9 @@ function TextEditor() {
       }
     } catch (error) {
       console.error("Error saving script:", error);
-      alert("An error occurred while saving the script. Please try again later.");
+      alert(
+        "An error occurred while saving the script. Please try again later."
+      );
     }
   };
 
@@ -65,7 +70,9 @@ function TextEditor() {
 
   const getScriptContent = async () => {
     try {
-      const response = await axios.get(`${baseURL}/getScript?editorId=${username}`);
+      const response = await axios.get(
+        `${baseURL}/getScript?editorId=${username}`
+      );
       setScriptContent(response.data); // Update script content state
     } catch (error) {
       throw new Error("Failed to fetch script");
@@ -75,17 +82,20 @@ function TextEditor() {
   return (
     <div className="terminal-loader">
       <div className="terminal-header">
-        <div className="terminal-title">Status</div>
+        <div className="terminal-title">
+          <p>Welcome {username}!</p>
+        </div>
       </div>
+      <br />
+      <br />
       <div className="text">Loading...</div>
       <div className="App">
-        <h1>Welcome {username}!</h1>
         <div>
           <textarea
             value={scriptContent}
             onChange={handleScriptChange}
-            rows="20"
-            cols="80"
+            // rows="20"
+            // cols="80"
             style={{ fontFamily: "monospace" }}
             className="chat-container"
           ></textarea>
